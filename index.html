@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keys Cold Plunge - Private Cold Plunge Rentals</title>
+    <style>
+	
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        /* ===== SITE HEADER ===== */
+        .site-header {
+            padding: 18px 20px;
+            max-width: 1200px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* logo on the left only */
+            gap: 16px;
+        }
+
+        /* Only the logo should appear in the header (left-aligned). */
+        .site-logo {
+            height: 110px; /* larger size on desktop */
+            width: auto;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .site-logo { height: 80px; }
+        }
+
+        @media (max-width: 480px) {
+            .site-logo { height: 64px; }
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero-subheading {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: #e0e7ff;
+            line-height: 1.4;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: #3b82f6;
+            color: white;
+            padding: 18px 48px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid #3b82f6;
+            cursor: pointer;
+        }
+
+        .hero-cta:hover {
+            background: #2563eb;
+            border-color: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        /* ===== BENEFITS SECTION ===== */
+        .benefits {
+            padding: 80px 20px;
+            background: #f8fafc;
+        }
+
+        .benefits-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #0f172a;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: #3b82f6;
+        }
+
+        .benefit-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .benefit-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #0f172a;
+        }
+
+        .benefit-card p {
+            font-size: 16px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* ===== HOW IT WORKS ===== */
+        .how-it-works {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .how-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: #3b82f6;
+            color: white;
+            border-radius: 50%;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .step h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #0f172a;
+        }
+
+        .step p {
+            font-size: 16px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials {
+            padding: 80px 20px;
+            background: #f8fafc;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            font-style: italic;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #0f172a;
+            font-size: 15px;
+        }
+
+        .testimonial-role {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        /* ===== VALUE STACK ===== */
+        .value-stack {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+            color: white;
+        }
+
+        .value-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .value-stack h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .value-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .value-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .value-item h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .value-item p {
+            font-size: 15px;
+            color: #e0e7ff;
+            line-height: 1.6;
+        }
+
+        .scarcity-badge {
+            background: #ef4444;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .final-cta {
+            padding: 80px 20px;
+            background: white;
+            text-align: center;
+        }
+
+        .final-cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .final-cta h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #0f172a;
+        }
+
+        .final-cta p {
+            font-size: 18px;
+            color: #64748b;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .final-cta-button {
+            display: inline-block;
+            background: #3b82f6;
+            color: white;
+            padding: 20px 60px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid #3b82f6;
+            cursor: pointer;
+            margin-bottom: 30px;
+        }
+
+        .final-cta-button:hover {
+            background: #2563eb;
+            border-color: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .guarantee {
+            font-size: 15px;
+            color: #64748b;
+            margin-top: 20px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero-subheading {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .benefits-grid {
+                gap: 25px;
+            }
+
+            .benefit-card {
+                padding: 30px;
+            }
+
+            .steps-grid {
+                gap: 30px;
+            }
+
+            .testimonials-grid {
+                gap: 20px;
+            }
+
+            .final-cta h2 {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 15px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero-subheading {
+                font-size: 16px;
+            }
+
+            .hero-cta {
+                padding: 15px 35px;
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 28px;
+                margin-bottom: 40px;
+            }
+
+            .benefits {
+                padding: 60px 15px;
+            }
+
+            .benefit-card {
+                padding: 25px;
+            }
+
+            .how-it-works {
+                padding: 60px 15px;
+            }
+
+            .testimonials {
+                padding: 60px 15px;
+            }
+
+            .value-stack {
+                padding: 60px 15px;
+            }
+
+            .final-cta {
+                padding: 60px 15px;
+            }
+
+            .final-cta h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SITE HEADER: only the left-aligned logo -->
+    <header class="site-header">
+        <!-- Put your logo file here with the exact name 'keyscoldplungelogo.png' (lowercase, no spaces) -->
+        <img src="Keys Cold Plunge Logo.png" alt="Keys Cold Plunge logo" class="site-logo">
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+		<div class="logo-bar">
+  <img src="Keys Cold Plunge Logo.png" alt="Keys Cold Plunge Logo" class="logo-icon">
+  <h1 class="logo-text">Keys Cold Plunge</h1>
+            <h1>Feel the Power Hit Before the Coffee Kicks In</h1>
+            <p class="hero-subheading">Private cold plunge delivered, installed, and ready to use in minutes. Zero setup. Zero maintenance. Pure results.</p>
+            <a href="#booking" class="hero-cta">Get the Power Hit Now →</a>
+        </div>
+    </section>
+
+    <!-- BENEFITS SECTION -->
+    <section class="benefits">
+        <div class="benefits-container">
+            <h2 class="section-title">Why High Performers Choose Keys Cold Plunge</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Recover Faster</h3>
+                    <p>Reduces inflammation and muscle soreness. Feel lighter, move better, perform harder—every single day.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔥</div>
+                    <h3>Boost Metabolism</h3>
+                    <p>Burn calories even at rest. Cold exposure activates brown fat and increases metabolic rate for hours.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🧠</div>
+                    <h3>Instant Clarity</h3>
+                    <p>Sharper focus without caffeine jitters. 3 minutes in the cold = mental clarity that lasts all day.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚙️</div>
+                    <h3>All-Day Energy</h3>
+                    <p>Activate your nervous system. Feel alive, alert, and ready to dominate from sunrise to sunset.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">😴</div>
+                    <h3>Sleep Like a Champion</h3>
+                    <p>Wake up recharged and ready to perform. Cold plunges regulate sleep cycles and deepen recovery.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Control Your Performance</h3>
+                    <p>Your private plunge, your schedule. No gym lines. No compromises. Pure control over your recovery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works">
+        <div class="how-container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Choose Your Plunge</h3>
+                    <p>Select the model that fits your space and needs. We handle the rest.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>We Deliver & Install</h3>
+                    <p>Professional delivery and setup at your home or business. Ready to use immediately.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>You Plunge Daily</h3>
+                    <p>We handle all maintenance and cleaning. You just show up and feel the results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <div class="testimonials-container">
+            <h2 class="section-title">Trusted by High Performers</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Cold exposure is one of the most powerful tools for improving mental resilience and physical performance. It's non-negotiable for me."</p>
+                    <p class="testimonial-author">Andrew Huberman</p>
+                    <p class="testimonial-role">Neuroscientist, Stanford University</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Ice baths are one of the best tools for recovery. The mental toughness you build is just as valuable as the physical benefits."</p>
+                    <p class="testimonial-author">Wim Hof</p>
+                    <p class="testimonial-role">Extreme Athlete & Breathwork Expert</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Cold plunges have become essential to my recovery protocol. The energy boost and mental clarity are unmatched."</p>
+                    <p class="testimonial-author">Joe Rogan</p>
+                    <p class="testimonial-role">Podcaster & Performance Enthusiast</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VALUE STACK -->
+    <section class="value-stack">
+        <div class="value-container">
+            <h2>Everything Included in Your Rental</h2>
+            <div class="value-items">
+                <div class="value-item">
+                    <h3>✓ Professional Delivery</h3>
+                    <p>White-glove delivery to your home or business.</p>
+                </div>
+                <div class="value-item">
+                    <h3>✓ Expert Installation</h3>
+                    <p>Full setup and integration with your space.</p>
+                </div>
+                <div class="value-item">
+                    <h3>✓ Weekly Maintenance</h3>
+                    <p>We keep it clean, filtered, and perfectly maintained.</p>
+                </div>
+                <div class="value-item">
+                    <h3>✓ 24/7 Support</h3>
+                    <p>Any issues? We're here to help, anytime.</p>
+                </div>
+                <div class="value-item">
+                    <h3>✓ Temperature Control</h3>
+                    <p>Precision temperature management for optimal results.</p>
+                </div>
+                <div class="value-item">
+                    <h3>✓ Easy Removal</h3>
+                    <p>When you're done, we remove it hassle-free.</p>
+                </div>
+            </div>
+            <div class="scarcity-badge">
+                ⏰ Limited Availability — Reserve Your Plunge for This Month
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+        <div class="final-cta-container">
+            <h2>Start Every Day Fully Alive</h2>
+            <p>Your private cold plunge is waiting. No setup. No maintenance. Just results.</p>
+            <a href="#booking" class="final-cta-button">Book Your Private Cold Plunge Now →</a>
+            <p class="guarantee">✓ 100% Satisfaction Guarantee | Flexible Rental Options | Cancel Anytime</p>
+        </div>
+    </section>
+
+</body>
+</html>
+
