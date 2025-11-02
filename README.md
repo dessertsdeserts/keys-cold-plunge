@@ -1,2 +1,2 @@
 # keys-cold-plunge
-Keys cold ;plunge landing page
+Keys cold plunge landing page
